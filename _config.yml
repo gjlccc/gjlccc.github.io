@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
-timezone: ''
+title: (｡･ω･)ﾉﾞ 你好♪(｡･ω･)ﾉﾞ 你好♪(｡･ω･)ﾉﾞ 你好♪
+subtitle: 'gjlccc闲着无聊搭的个人博客'
+description: '会分享一些知识把'
+keywords: ACM 计算机科学与技术 zstu
+author: gjlccc
+language: zh-CN
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -96,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: ayer
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="ACM 计算机科学与技术 zstu">
+  
+  
+  <meta name="description" content="会分享一些知识把">
+  
+  <title>
+    2024河南省赛G题题解 |
+    
+    (｡･ω･)ﾉﾞ 你好♪(｡･ω･)ﾉﾞ 你好♪(｡･ω･)ﾉﾞ 你好♪
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-2024河南省赛G题题解" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+  <h1 class="article-title" itemprop="name">
+    2024河南省赛G题题解
+  </h1>
+  
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2024/05/15/2024%E6%B2%B3%E5%8D%97%E7%9C%81%E8%B5%9BG%E9%A2%98%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2024-05-15T14:29:58.000Z" itemprop="datePublished">2024-05-15</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <p>先占个坑，等我博客重建完.</p>
+<p>来填坑了</p>
+<p>感觉思路对是对的，毕竟题目过了，但是还是不够简单，特判太多了，跟着check出来的一点点改的，才慢慢找齐的</p>
+<p>题目只有pdf，地址请点：[2024河南省赛](<a target="_blank" rel="noopener" href="https://codeforces.com/gym/105158">Dashboard - 2024 National Invitational of CCPC (Zhengzhou), 2024 CCPC Henan Provincial Collegiate Programming Contest - Codeforces</a>)。</p>
+<p>我们只要把下文介绍的的两种构造方案，和特判组合起来就能通过啦。</p>
+<p>幸亏这题的 $check$ 十分好写，不然 $vp$ 的时候应该是出不来的。</p>
+<p>方案讲解是跟着作者的一步一步构造出来正确答案的过程来的，有些中间部分时有问题的，请先耐心看完，如果还有问题再提出。</p>
+<h2 id="第一种构造方案"><a href="#第一种构造方案" class="headerlink" title="第一种构造方案"></a>第一种构造方案</h2><h3 id="使用条件："><a href="#使用条件：" class="headerlink" title="使用条件："></a>使用条件：</h3><p>在满足 $m \geq \lfloor \frac{n^2}{2} \rfloor +2$​ 时。</p>
+<p>最想也最不会出错的一种，可惜范围有限</p>
+<h3 id="文字描述："><a href="#文字描述：" class="headerlink" title="文字描述："></a>文字描述：</h3><p>首先进行隔位填 $1$ 使用 $\frac{n^2}{2}+2$ 个雷，来给出一个框架，使得使所有 $0$ 的位置周围的雷的数量都大于 $2$ 那么之后的我们只需要找顺序遍历把剩余 $m - \lfloor \frac{n^2}{2} \rfloor +2$ 个雷填到空的格子里就可以 。</p>
+<p>在 $n$ 为奇数的隔位填 $1$ 刚好满足使所有 $0$ 的位置周围的雷的数量都大于 $2$ 。</p>
+<p>在 $n$ 偶数时还需填上 $a[1][n]$ 和 $a[n][1]$ 两个格子才能满足。否则这两个格子周围雷的数量刚好是2。</p>
+<h3 id="图例："><a href="#图例：" class="headerlink" title="图例："></a>图例：</h3><p><img src="/pic/%E6%96%B9%E6%A1%88%E4%B8%80%E7%A4%BA%E4%BE%8B5X5.png" alt="5X5示例"></p>
+<p><img src="/pic/%E6%96%B9%E6%A1%88%E4%B8%80%E7%A4%BA%E4%BE%8B6X6.png" alt="6X6示例"></p>
+<h2 id="第二种构造方案"><a href="#第二种构造方案" class="headerlink" title="第二种构造方案"></a>第二种构造方案</h2><h3 id="使用条件：-1"><a href="#使用条件：-1" class="headerlink" title="使用条件："></a>使用条件：</h3><p>这是一般性的构造方案，除了第一种构造方案和特判就都用这种的。</p>
+<p>感觉这种方案要拿出来的特判太多了，所以我认为这不是一种优秀的方案</p>
+<h3 id="基本策略"><a href="#基本策略" class="headerlink" title="基本策略"></a>基本策略</h3><p>文字+图片描述（感觉分开太难描述了）：</p>
+<p>我们将一个十字的放置视作最小单元</p>
+<p><img src="/pic/%E6%9C%80%E5%B0%8F%E5%8D%95%E5%85%83.png" alt="最小的单元"></p>
+<p>确立基本原则，每次放置要将整个最小单元放置，最右端和最下端超出边界直接删去超出边界那个即可。</p>
+<p>我们用其中心点来定位，第一个中心点在 $(2,2)$ ，下一个在 $(2,5)$ ，就这样向后放置直到这一行放不下了，</p>
+<p>到下一行从 $(5,2)$ 开始往后放置，以此类推即可。</p>
+<p>最小单元放完了，或者未填的 $m$ 个数不足以放置下一个最小单元时</p>
+<p>从头开始填充 $m$ 个为 $0$​ 的位置。</p>
+<p>$ 5*5 $ 的放置示例：</p>
+<p> <img src="/pic/%E6%96%B9%E6%A1%88%E4%BA%8C5X5%E7%A4%BA%E4%BE%8B.png" alt="5*5的放置示例"></p>
+<p>$7*7$ 的放置示例:</p>
+<p><img src="/pic/%E6%96%B9%E6%A1%88%E4%BA%8C7X7%E7%A4%BA%E4%BE%8B.png" alt="7*7的放置示例"></p>
+<p>当我们计算个数时只要保证上届能衔接到第一种方案就行，小的部分余下的需要特判的数量不会很多（至少不是会导致写1000行的代码）。</p>
+<p>凭借感觉我们就能感觉到 $7*7$ 的时候时上最劣的情况</p>
+<p><img src="/pic/%E6%96%B9%E6%A1%88%E4%BA%8C%E5%8F%AF%E6%94%BE%E7%BD%AE%E6%95%B0%E9%87%8F%E5%88%86%E6%9E%90.png" alt="7*7上限"></p>
+<p>黄色的为最小单位组成的框架，蓝色的地方是能填充的地方，一共29个，$29 &gt; 26$ 。</p>
+<p>个数足够到达第一种方案</p>
+<h3 id="针对于错误的改进"><a href="#针对于错误的改进" class="headerlink" title="针对于错误的改进"></a>针对于错误的改进</h3><h4 id="错误一："><a href="#错误一：" class="headerlink" title="错误一："></a>错误一：</h4><p>聪明的你一定想到了，以上方法构造出来的东西是有问题的</p>
+<p>假设 $n&#x3D;10,m&#x3D;20$ 时根据以上，我们会构造出来这样一张图。</p>
+<p><img src="/pic/%E6%96%B9%E6%A1%88%E4%BA%8C%E7%A4%BA%E4%BE%8B%E9%94%99%E8%AF%AF1.png" alt="错误示例一"></p>
+<p>在红色格子周围一共 $2$ 个雷。</p>
+<p>当时做到这，一下子就蒙了一下，写了真的很久，坚信之前的底子没错只要小修改一下就好，还好改出来了。</p>
+<h4 id="修改措施一："><a href="#修改措施一：" class="headerlink" title="修改措施一："></a>修改措施一：</h4><p>我们从第二行（最小单元的）开始，将最小单元再加上一个，变成六个一组就可以啦，只是特判的东西要再多一点了。</p>
+<p><img src="/pic/%E6%96%B9%E6%A1%88%E4%BA%8C%E7%A4%BA%E4%BE%8B%E4%BF%AE%E6%94%B91.png" alt="修改示例二"></p>
+<p>绿色的为第二行开始的构造的最小单元。这样红色格子旁边就有3个雷了，问题解决!</p>
+<h4 id="错误二："><a href="#错误二：" class="headerlink" title="错误二："></a>错误二：</h4><p>这是由错误一引发的错误</p>
+<p>当 $n&#x3D;7,m&#x3D;22$ 时，我们会构造出来这样一张图</p>
+<p><img src="/pic/%E9%94%99%E8%AF%AF%E7%A4%BA%E4%BE%8B2.png" alt="错误示例2"></p>
+<p>黄色的时我们填充的单元格，红色的为周围雷的个数为 $2$ 的格子</p>
+<h4 id="修改措施二："><a href="#修改措施二：" class="headerlink" title="修改措施二："></a>修改措施二：</h4><p>直接判断是不是本行最后一个能放置的，如果是，就把右上角那个在当前这个最小单元里的踢出去就好了</p>
+<p><img src="/pic/%E4%BF%AE%E6%94%B9%E7%A4%BA%E4%BE%8B2.png" alt="修改示例2"></p>
+<p>解决！</p>
+<h4 id="错误三："><a href="#错误三：" class="headerlink" title="错误三："></a>错误三：</h4><p>当最小单元组成的边框所留出来的空格足够，但是遍历的时候将不是雷的直接设置雷的时候会有错误</p>
+<p>例如 $n&#x3D;7 ,m&#x3D;21$ 时</p>
+<p><img src="/pic/%E9%94%99%E8%AF%AF%E7%A4%BA%E4%BE%8B3.png" alt="错误示例3"></p>
+<p>黄色绿色都是填上的格子。会发现明显错误。</p>
+<h4 id="修改措施三："><a href="#修改措施三：" class="headerlink" title="修改措施三："></a>修改措施三：</h4><p>记录最后一次的最小单元放置的中心点位置，</p>
+<p>假设为 $(i,j)$ ,那么当遇到点 $(i-2,j+2)$ 时直接换到下一行。</p>
+<p><img src="/pic/%E4%BF%AE%E6%94%B9%E7%A4%BA%E4%BE%8B3.png" alt="修改示例3"></p>
+<p>黄色和橙色都是放置的雷，</p>
+<p>橙色表示最后一个最小单元的中心点，红色为 $(i-2,j+2)$ 。</p>
+<h3 id="方案二完结"><a href="#方案二完结" class="headerlink" title="方案二完结"></a>方案二完结</h3><p>应该没有别的部分了，真的很复杂，虽然代码长度也还好吧。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/15/2024%E6%B2%B3%E5%8D%97%E7%9C%81%E8%B5%9BG%E9%A2%98%E9%A2%98%E8%A7%A3/" data-id="clw908ivf0002qsuocxt85den" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2024%E6%B2%B3%E5%8D%97%E7%9C%81%E8%B5%9B/" rel="tag">2024河南省赛</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2024/05/16/test-pic1/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      test_pic1
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2024/05/15/hello-world/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">Hello World</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'Ov23ctRpTsNwS0ah6pUy',  // 这里一定要注意主题 config.yml 中 clientID 的大小写，否则参数传不过来，对应下边的 "问题一"
+    clientSecret: '1967054e5f785476103f315640564a56e22d1a45',
+    repo: 'gtalk_contain',
+    owner: 'gjlccc',
+    admin: ['gjlccc'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>(｡･ω･)ﾉﾞ 你好♪(｡･ω･)ﾉﾞ 你好♪(｡･ω･)ﾉﾞ 你好♪ &copy; 2024</li>
+      
+        <li>
+          
+            <a href="https://beian.miit.gov.cn/" target="_blank"></a>
+            
+        </li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+    <p><ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt tooltip" data-tooltip="UV"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark tooltip" data-tooltip="PV"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul></p>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="(｡･ω･)ﾉﾞ 你好♪(｡･ω･)ﾉﾞ 你好♪(｡･ω･)ﾉﾞ 你好♪"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">Gallery</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>
